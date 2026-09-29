@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدليل الشامل | ERSSM - المدرسة الملكية للخدمات الصحية العسكرية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0a0f0d;
+            --bg-card: #121a16;
+            --bg-card-hover: #1a2620;
+            --primary-green: #2c4c3b;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f3d575;
+            --text-main: #e8e8e8;
+            --text-muted: #9ca3af;
+            --danger: #ef4444;
+            --success: #10b981;
+            --border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
+
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 15px 5%;
+            background: rgba(10, 15, 13, 0.95); backdrop-filter: blur(10px);
+            z-index: 1000; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--accent-gold); display: flex; align-items: center; gap: 10px; }
+        .logo i { font-size: 1.8rem; }
+
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; transition: 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--accent-gold); }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--accent-gold); }
+
+        .hero {
+            min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 100px 5% 50px; position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(44, 76, 59, 0.3) 0%, var(--bg-dark) 70%);
+        }
+
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px; opacity: 0.5;
+        }
+
+        .hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+        .hero-badge {
+            display: inline-block; padding: 8px 20px; background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent-gold); border-radius: 50px; color: var(--accent-gold);
+            font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem; font-weight: 900; margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-main), var(--accent-gold));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; max-width: 700px; margin: 0 auto; }
+
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+        .btn {
+            padding: 14px 32px; border-radius: 8px; font-family: 'Cairo', sans-serif;
+            font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease;
+            text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: none;
+        }
+
+        .btn-primary { background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light)); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+
+        .btn-secondary { background: transparent; border: 2px solid var(--primary-green); color: var(--text-main); }
+        .btn-secondary:hover { background: var(--primary-green); transform: translateY(-3px); }
+
+        .btn-download { 
+            background: linear-gradient(135deg, var(--primary-green), #3d6b52); 
+            color: white; border: 1px solid var(--accent-gold);
+        }
+        .btn-download:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(44, 76, 59, 0.4); }
+
+        section { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 15px; color: var(--text-main); }
+        .section-header h2 span { color: var(--accent-gold); }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        .card {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px;
+            padding: 30px; transition: all 0.4s ease; position: relative; overflow: hidden;
+        }
+
+        .card::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--primary-green));
+            transform: scaleX(0); transform-origin: right; transition: transform 0.4s ease;
+        }
+
+        .card:hover { transform: translateY(-10px); background: var(--bg-card-hover); border-color: var(--accent-gold); }
+        .card:hover::before { transform: scaleX(1); }
+
+        .card-icon {
+            width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+            color: var(--accent-gold); margin-bottom: 20px;
+        }
+
+        .card h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--text-main); }
+        .card p, .card ul { color: var(--text-muted); font-size: 0.95rem; }
+        .card ul { list-style: none; padding: 0; }
+        .card ul li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .card ul li i { color: var(--accent-gold); font-size: 0.8rem; }
+
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after {
+            content: ''; position: absolute; width: 4px; background: var(--primary-green);
+            top: 0; bottom: 0; right: 50%; margin-right: -2px; border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px; position: relative; width: 50%; opacity: 0;
+            transform: translateY(20px); transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible { opacity: 1; transform: translateY(0); }
+        .timeline-item:nth-child(odd) { right: 0; text-align: left; }
+        .timeline-item:nth-child(even) { right: 50%; text-align: right; }
+
+        .timeline-item::after {
+            content: ''; position: absolute; width: 20px; height: 20px; background: var(--accent-gold);
+            border: 4px solid var(--bg-dark); top: 15px; border-radius: 50%; z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after { right: -10px; }
+        .timeline-item:nth-child(even)::after { left: -10px; }
+
+        .timeline-content { padding: 20px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; }
+        .timeline-content h3 { color: var(--accent-gold); margin-bottom: 10px; font-size: 1.2rem; }
+        .timeline-content p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 16px; padding: 30px; display: flex; align-items: flex-start;
+            gap: 20px; max-width: 900px; margin: 40px auto 0;
+        }
+        .warning-box i { font-size: 2rem; color: var(--danger); flex-shrink: 0; }
+        .warning-box h3 { color: var(--danger); margin-bottom: 10px; }
+        .warning-box p { color: var(--text-muted); }
+
+        /* Checklist Styles */
+        .checklist-container {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px;
+            padding: 40px; max-width: 800px; margin: 0 auto; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .checklist-item {
+            display: flex; align-items: center; gap: 15px; padding: 15px;
+            background: var(--bg-dark); border-radius: 10px; margin-bottom: 15px;
+            border: 1px solid transparent; transition: 0.3s; cursor: pointer;
+        }
+
+        .checklist-item:hover { border-color: var(--accent-gold); }
+
+        .checklist-item input[type="checkbox"] {
+            width: 20px; height: 20px; accent-color: var(--accent-gold); cursor: pointer;
+        }
+
+        .checklist-item label { cursor: pointer; font-size: 1.05rem; color: var(--text-main); flex: 1; }
+
+        .checklist-result {
+            margin-top: 25px; padding: 20px; border-radius: 12px; text-align: center;
+            font-size: 1.1rem; font-weight: 700; display: none; animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .checklist-result.success { background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success); color: var(--success); display: block; }
+        .checklist-result.info { background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent-gold); color: var(--accent-gold); display: block; }
+
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-links { 
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--bg-dark); flex-direction: column; padding: 20px;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero h1 { font-size: 2.2rem; }
+            .timeline::after { right: 20px; }
+            .timeline-item { width: 100%; padding-right: 50px; text-align: right !important; }
+            .timeline-item:nth-child(even) { right: 0; }
+            .timeline-item::after { right: 10px !important; left: auto !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <i class="fas fa-star-of-life"></i>
+            <span>ERSSM</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#competition">مراحل المباراة</a></li>
+            <li><a href="#studies">الحياة الدراسية</a></li>
+            <li><a href="#benefits">المزايا</a></li>
+            <li><a href="#checklist">قائمة الاستعداد</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-shield-alt"></i> المدرسة الملكية للخدمات الصحية العسكرية
+            </div>
+            <h1>الدليل الشامل للدراسة في ERSSM</h1>
+            <p>رحلتك من طالب بكالوريا إلى طبيب عسكري. اكتشف الشروط، مراحل المباراة، مزايا الدراسة، والمسار المهني المشرق في صفوف القوات المسلحة الملكية.</p>
+            <div class="hero-buttons">
+                <a href="https://raw.githubusercontent.com/itsme0kjhgf/ERSSM/main/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84%20-%20ERSSM.pdf" download class="btn btn-download">
+                    <i class="fas fa-file-pdf"></i> تحميل الدليل الشامل (PDF)
+                </a>
+                <a href="#competition" class="btn btn-secondary">
+                    <i class="fas fa-list-ol"></i> اكتشف مراحل المباراة
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="competition">
+        <div class="section-header fade-in">
+            <h2>مراحل <span>المباراة</span></h2>
+            <p>أربع مراحل حاسمة تفصلك عن تحقيق حلمك. الاستعداد الجيد هو مفتاح النجاح.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-file-alt"></i> 1. الانتقاء الأولي</h3>
+                    <p>فرز الملفات بناءً على معدل البكالوريا. المنافسة الحقيقية تبدأ من معدل 16/20 فما فوق لضمان الاستدعاء.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-pen-fancy"></i> 2. الاختبارات الكتابية</h3>
+                    <p>امتحانات كتابية في مواد علمية أساسية (كالرياضيات، الفيزياء، والعلوم الطبيعية) لقياس قدراتك الأكاديمية وتحليلك المنطقي.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-running"></i> 3. الفحوصات الطبية والرياضية</h3>
+                    <p>التأكد من لياقتك البدنية والصحية العالية (الجري، السباحة، الفحوصات الطبية الشاملة) لتحمل ضغط الحياة العسكرية.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-comments"></i> 4. المقابلة الشفوية</h3>
+                    <p>تقييم شخصيتك، دوافعك، لياقتك النفسية، وقدرتك على الانضباط. هذه المرحلة حاسمة في الترتيب النهائي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="studies">
+        <div class="section-header fade-in">
+            <h2>الحياة <span>الدراسية</span> والعسكرية</h2>
+            <p>تكوين مزدوج يجمع بين التميز الأكاديمي في الطب والانضباط العسكري الصارم.</p>
+        </div>
+
+        <div class="cards-grid fade-in">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-university"></i></div>
+                <h3>الشق الأكاديمي (الجامعة)</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> الطب العام: 7 سنوات</li>
+                    <li><i class="fas fa-check-circle"></i> الصيدلة: 6 سنوات</li>
+                    <li><i class="fas fa-check-circle"></i> جراحة الأسنان: 6 سنوات</li>
+                    <li><i class="fas fa-check-circle"></i> شهادات معترف بها وطنياً ودولياً</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>الشق العسكري</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> تدريب على القتال والأسلحة</li>
+                    <li><i class="fas fa-check-circle"></i> الطب العسكري والإسعافات</li>
+                    <li><i class="fas fa-check-circle"></i> الطب الفضائي والجوي</li>
+                    <li><i class="fas fa-check-circle"></i> الترقية أثناء الدراسة (ملازم)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-campground"></i></div>
+                <h3>نمط الحياة</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> نظام داخلي إلزامي (الإقامة بالمدرسة)</li>
+                    <li><i class="fas fa-check-circle"></i> الخضوع التام للنظام العسكري</li>
+                    <li><i class="fas fa-check-circle"></i> تعزيز الانضباط والاستقلالية</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <div class="section-header fade-in">
+            <h2>المزايا <span>والامتيازات</span></h2>
+            <p>دولة تتكفل بك بالكامل من اليوم الأول، مقابل التزامك وخدمتك للوطن.</p>
+        </div>
+
+        <div class="cards-grid fade-in">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-money-bill-wave"></i></div>
+                <h3>الدخل والمالية</h3>
+                <p>منحة شهرية قدرها <strong style="color: var(--accent-gold);">5,200 درهم</strong> أثناء الدراسة. وتغطية 100% لرسوم التسجيل والتأمين.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-home"></i></div>
+                <h3>السكن والإطعام</h3>
+                <p>إقامة مجانية بالكامل داخل المؤسسة، مع توفير وجبات غذائية صحية وملابس عسكرية موحدة.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>المسار المهني</h3>
+                <p>تخرج برتبة ملازم، راتب يبدأ من <strong style="color: var(--accent-gold);">~13,000 درهم</strong>، وترقية منتظمة حتى رتبة رائد.</p>
+            </div>
+        </div>
+
+        <div class="warning-box fade-in">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+                <h3>تنبيه هام: العقد والالتزام</h3>
+                <p>الالتحاق بـ ERSSM يعني توقيع عقد للخدمة لمدة <strong>10 سنوات</strong> في صفوف القوات المسلحة. في حال رغبتك في الانسحاب قبل إتمام المدة، ستُطالب بتعويض الدولة عن جميع مصاريف دراستك وتكوينك. <strong>فكر جيداً قبل التقديم!</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preparation Checklist (Replaces strict eligibility calculator for pre-bac students) -->
+    <section id="checklist">
+        <div class="section-header fade-in">
+            <h2>قائمة <span>التحقق والاستعداد</span></h2>
+            <p>أنت لم تحصل على البكالوريا بعد؟ لا مشكلة! استخدم هذه القائمة لتتأكد من أنك على المسار الصحيح للبدء في الاستعداد من الآن.</p>
+        </div>
+
+        <div class="checklist-container fade-in">
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox" id="check1">
+                <label for="check1">أدرس حالياً في شعبة علمية (علوم رياضية، علوم فيزيائية، علوم الحياة والأرض، أو علوم زراعية).</label>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox" id="check2">
+                <label for="check2">أستهدف الحصول على معدل لا يقل عن 16/20 في البكالوريا لضمان المنافسة القوية.</label>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox" id="check3">
+                <label for="check3">أهتم بلياقتي البدنية وأبدأ بالتدرب على الجري والسباحة بشكل منتظم.</label>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox" id="check4">
+                <label for="check4">أنا مستعد نفسياً للالتزام بنظام داخلي صارم وخدمة الوطن لمدة 10 سنوات بعد التخرج.</label>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox" id="check5">
+                <label for="check5">أقوم بمراجعة دروسي في الرياضيات والفيزياء والعلوم الطبيعية استعداداً للاختبارات الكتابية.</label>
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 20px;" onclick="evaluateChecklist()">
+                <i class="fas fa-clipboard-check"></i> تقييم مستوى استعدادي
+            </button>
+            
+            <div id="checklistResult" class="checklist-result"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>تم إعداد هذا الدليل الشامل لأغراض توجيهية فقط. للمعلومات الرسمية، يرجى زيارة الموقع الرسمي للتجنيد: <a href="https://recrutement.far.ma" target="_blank">recrutement.far.ma</a></p>
+        <p style="margin-top: 10px; color: var(--primary-green);">© 2024 ERSSM Guide. صُمم بحب لخدمة طموحات الشباب المغربي.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        function toggleCheck(element) {
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+        }
+
+        function evaluateChecklist() {
+            const checkboxes = document.querySelectorAll('.checklist-container input[type="checkbox"]');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => { if (cb.checked) checkedCount++; });
+
+            const resultBox = document.getElementById('checklistResult');
+            resultBox.className = 'checklist-result';
+
+            if (checkedCount === 5) {
+                resultBox.classList.add('success');
+                resultBox.innerHTML = '<i class="fas fa-trophy"></i> ممتاز! أنت على المسار الصحيح تماماً. استمر في التألق في دراستك وتدريباتك البدنية. المستقبل لك!';
+            } else if (checkedCount >= 3) {
+                resultBox.classList.add('info');
+                resultBox.innerHTML = '<i class="fas fa-info-circle"></i> بداية جيدة! أنت في الطريق الصحيح، لكن ركز على تحسين النقاط التي لم تتحقق منها بعد (خاصة المعدل واللياقة البدنية) قبل موعد المباراة.';
+            } else {
+                resultBox.classList.add('info');
+                resultBox.innerHTML = '<i class="fas fa-exclamation-circle"></i> أنت في بداية الطريق. لا تقلق، لكن يجب أن تبدأ الآن في رفع معدلك الدراسي والاهتمام بلياقتك البدنية بشكل جدي.';
+            }
+        }
+
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.scrollY > 50 ? 'rgba(10, 15, 13, 0.98)' : 'rgba(10, 15, 13, 0.95)';
+        });
+    </script>
+</body>
+</html>
